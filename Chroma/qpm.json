@@ -1,0 +1,145 @@
+{
+  "$schema": "https://raw.githubusercontent.com/QuestPackageManager/QPM.Package/refs/heads/main/qpm.schema.json",
+  "version": "0.4.0",
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "Chroma",
+    "id": "chroma",
+    "version": "2.10.2",
+    "url": "https://github.com/bsq-ports/Chroma",
+    "additionalData": {
+      "headersOnly": true,
+      "overrideSoName": "libchroma.so"
+    }
+  },
+  "workspace": {
+    "scripts": {
+      "build": [
+        "pwsh ./scripts/build.ps1 --release"
+      ],
+      "clean": [
+        "pwsh ./scripts/build.ps1 -clean"
+      ],
+      "copy": [
+        "pwsh ./scripts/copy.ps1"
+      ],
+      "copyRelease": [
+        "pwsh ./scripts/copy.ps1 --release"
+      ],
+      "profile": [
+        "pwsh ./scripts/profile.ps1"
+      ]
+    },
+    "ndk": "^29.0.14206865",
+    "qmodIncludeDirs": [
+      "./build",
+      "./extern/libs"
+    ],
+    "qmodIncludeFiles": [],
+    "qmodOutput": "Chroma.qmod"
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "^9.3.0",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "^0.21.2",
+      "additionalData": {
+        "includeQmod": true,
+        "private": true
+      }
+    },
+    {
+      "id": "bs-cordl",
+      "versionRange": "4503.*",
+      "additionalData": {
+        "includeQmod": true,
+        "private": true
+      }
+    },
+    {
+      "id": "custom-json-data",
+      "versionRange": "^0.24.6",
+      "additionalData": {
+        "private": true
+      }
+    },
+    {
+      "id": "config-utils",
+      "versionRange": "^3.0.0",
+      "additionalData": {
+        "private": true
+      }
+    },
+    {
+      "id": "bsml",
+      "versionRange": "^0.6.5",
+      "additionalData": {
+        "includeQmod": true,
+        "private": true
+      }
+    },
+    {
+      "id": "conditional-dependencies",
+      "versionRange": "^0.3.0",
+      "additionalData": {}
+    },
+    {
+      "id": "sombrero",
+      "versionRange": "^0.2.0",
+      "additionalData": {}
+    },
+    {
+      "id": "tracks",
+      "versionRange": "^2.5.5",
+      "additionalData": {
+        "private": true
+      }
+    },
+    {
+      "id": "boost-regex",
+      "versionRange": "*",
+      "additionalData": {
+        "private": true
+      }
+    },
+    {
+      "id": "scotland2",
+      "versionRange": "^0.1.7",
+      "additionalData": {
+        "includeQmod": false
+      }
+    },
+    {
+      "id": "songcore",
+      "versionRange": "^1.3.5",
+      "additionalData": {
+        "includeQmod": true,
+        "private": true
+      }
+    },
+    {
+      "id": "paper2_scotland2",
+      "versionRange": "^4.8.0",
+      "additionalData": {}
+    },
+    {
+      "id": "flamingo",
+      "versionRange": "^1.2.1",
+      "additionalData": {
+        "private": true
+      }
+    },
+    {
+      "id": "reflectcpp",
+      "versionRange": "^0.25.0",
+      "additionalData": {
+        "private": true
+      }
+    }
+  ]
+}
