@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "defines": [
+        "__GNUC__",
+        "__aarch64__",
+        "VERSION=\"1.0.0\""
+      ],
+      "includePath": [
+        "${workspaceFolder}/",
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/shared",
+        "${workspaceFolder}/extern",
+        "${workspaceFolder}/extern/codegen/include",
+        "${workspaceFolder}/extern/libil2cpp/il2cpp/libil2cpp",
+        "D:/DevTools/android-ndk-r27/android-ndk-r27-canary/toolchains/llvm/prebuilt/windows-x86_64/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include",
+        "D:/DevTools/android-ndk-r27/android-ndk-r27-canary/toolchains/llvm/prebuilt/windows-x86_64/sources/cxx-stl/llvm-libc++/include",
+        "D:/DevTools/android-ndk-r27/android-ndk-r27-canary/toolchains/llvm/prebuilt/windows-x86_64/sources/cxx-stl/llvm-libc++abi/include"
+      ],
+      "name": "Quest",
+      "compilerPath": "D:/DevTools/android-ndk-r27/android-ndk-r27-canary/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++",
+      "cStandard": "gnu17",
+      "cppStandard": "gnu++20",
+      "intelliSenseMode": "clang-x64"
+    }
+  ],
+  "version": 4
+}

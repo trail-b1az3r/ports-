@@ -1,0 +1,20 @@
+{
+  "_QPVersion": "0.1.1",
+  "name": "Chroma",
+  "id": "${mod_id}",
+  "coverImage": "cover.png",
+  "author": "Aeroluna",
+  "porter": "FernTheDev, nyamimi~(Kaitlyn), Catsacode, Futurmapper",
+  "version": "${version}",
+  "packageId": "com.beatgames.beatsaber",
+  "packageVersion": "1.45.3_30054",
+  "description": "Colors!",
+  "modFiles": [],
+  "lateModFiles": [
+    "${binary}"
+  ],
+  "dependencies": [],
+  "libraryFiles": [],
+  "fileCopies": [],
+  "copyExtensions": []
+}

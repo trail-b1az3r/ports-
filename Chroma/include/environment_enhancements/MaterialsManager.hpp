@@ -1,0 +1,68 @@
+#include "beatsaber-hook/shared/safeptr.hpp"
+#pragma once
+
+#include "custom-json-data/shared/CustomBeatmapData.h"
+#include "tracks/shared/Animation/Track.h"
+#include "tracks/shared/AssociatedData.h"
+
+#include "UnityEngine/Material.hpp"
+
+#include <unordered_set>
+
+namespace Chroma {
+enum struct ShaderType {
+  Standard,
+  OpaqueLight,
+  TransparentLight,
+  BaseWater,
+  BillieWater,
+  BTSPillar,
+  InterscopeConcrete,
+  InterscopeCar,
+  Obstacle,
+  WaterfallMirror,
+  Glowing,
+};
+
+bool IsLightType(ShaderType shaderType);
+
+struct MaterialInfo {
+  MaterialInfo(ShaderType shaderType, std::string_view shaderTypeStr,
+               safe_ptr<UnityEngine::Material*> const& material, std::optional<TracksAD::TracksVector> track)
+      : ShaderType(shaderType), ShaderTypeStr(shaderTypeStr), Material(material), Track(std::move(track)) {
+    CRASH_UNLESS(static_cast<bool>(material));
+  }
+
+  ShaderType ShaderType;
+  std::string ShaderTypeStr;
+
+  safe_ptr<UnityEngine::Material*> Material;
+
+  std::optional<TracksAD::TracksVector> Track;
+};
+
+struct MaterialsManager {
+  std::unordered_map<std::string, MaterialInfo const> materials;
+  std::unordered_map<std::string_view, MaterialInfo const>
+      materialsJSON; // if two materials have the same JSON, they are the same material
+  TracksAD::BeatmapAssociatedData& beatmapAD;
+
+  bool const v2;
+
+  static UnityEngine::Material* InstantiateSharedMaterial(ShaderType shaderType);
+  MaterialInfo CreateMaterialInfo(rapidjson::Value const& data);
+
+  static UnityEngine::Material* GetMaterialTemplate(ShaderType shaderType);
+
+public:
+  inline static std::vector<safe_ptr<UnityEngine::Material*>> createdMaterials;
+
+  static void Reset();
+
+  MaterialsManager(rapidjson::Value const& customData, TracksAD::BeatmapAssociatedData& beatmapAD, bool v2);
+
+  std::optional<MaterialInfo> GetMaterial(rapidjson::Value const& data);
+
+  [[nodiscard]] decltype(MaterialsManager::materials) const& GetMaterials() const;
+};
+} // namespace Chroma
